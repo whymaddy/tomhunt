@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Cinzel:wght@600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Luxury Dark Palette matching Footer Background */
+  --color-palette-bg: #121316;
+  --color-palette-card: #1C1D22;
+  --color-palette-card-hover: #23242B;
+  --color-palette-border: rgba(212, 175, 55, 0.22);
+
+  /* Semantic Theme Mappings */
+  --color-ink: #0E0F12;
+  --color-deep: #16171B;
+  --color-forest: #1C1D22;
+  --color-moss: #222329;
+  --color-pine: #2E2F38;
+  --color-sage: #9E9EA7;
+  --color-mint: #FFFFFF;
+
+  /* Royal Logo Accents */
+  --color-gold: #D4AF37;
+  --color-gold-light: #F5D061;
+  --color-gold-dark: #A3791B;
+  --color-silver: #E0E0E0;
+  --color-silver-light: #FFFFFF;
+
+  --font-display: 'Bricolage Grotesque', ui-sans-serif, sans-serif;
+  --font-body: 'Outfit', ui-sans-serif, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-royal: 'Cinzel', serif;
+
+  --animate-marquee: marquee 22s linear infinite;
+  --animate-pulse-ring: pulse-ring 2.4s ease-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-shimmer: shimmer 3s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5); }
+  70% { box-shadow: 0 0 0 14px rgba(212, 175, 55, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes word-appear {
+  0% { opacity: 0; transform: translateY(30px) scale(0.8); filter: blur(10px); }
+  50% { opacity: 0.8; transform: translateY(10px) scale(0.95); filter: blur(2px); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+@keyframes grid-draw {
+  0% { stroke-dashoffset: 1000; opacity: 0; }
+  50% { opacity: 0.3; }
+  100% { stroke-dashoffset: 0; opacity: 0.15; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.1); }
+}
+
+@keyframes underline-grow {
+  to { width: 100%; }
+}
+
+html, body, #root {
+  background-color: #121316;
+  color: #FFFFFF;
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  color: #FFFFFF;
+  background-color: #121316;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Luxury Ambient Footer-style Background for entire web */
+.footer-style-backdrop {
+  background-color: #141519;
+  background-image:
+    radial-gradient(120% 90% at 8% 0%, rgba(212, 175, 55, 0.18), transparent 55%),
+    radial-gradient(90% 70% at 92% 8%, rgba(212, 175, 55, 0.12), transparent 60%),
+    linear-gradient(180deg, rgba(212, 175, 55, 0.05), transparent 70%);
+}
+
+.footer-bands {
+  background: repeating-linear-gradient(90deg, rgba(212, 175, 55, 0.035) 0 1.6cqw, transparent 1.6cqw 4.2cqw);
+  -webkit-mask-image: linear-gradient(100deg, #000 0%, transparent 65%);
+  mask-image: linear-gradient(100deg, #000 0%, transparent 65%);
+  opacity: 0.9;
+}
+
+.footer-beam {
+  filter: blur(calc(2px + 2cqw));
+  background:
+    linear-gradient(118deg, transparent calc(56% - 12%), rgba(212, 175, 55, 0.12) calc(56% - 5%), rgba(212, 175, 55, 0.38) 56%, rgba(212, 175, 55, 0.1) calc(56% + 4%), transparent calc(56% + 9%)),
+    linear-gradient(118deg, transparent calc(56% - 34%), rgba(212, 175, 55, 0.1) calc(56% - 27%), transparent calc(56% - 20%));
+}
+
+/* Metallic Logo Text Style */
+.gold-silver-gradient {
+  background: linear-gradient(135deg, #ECC869 0%, #FFFFFF 28%, #D4AF37 50%, #E0E0E0 75%, #B38728 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  background-size: 200% auto;
+  animation: shimmer 4s linear infinite;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #F5D061 0%, #D4AF37 40%, #FFF4D0 70%, #AA771C 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.silver-gradient {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E0E0E0 50%, #B0B0B0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Digital Serenity Interactive animations & classes */
+.word-animate {
+  display: inline-block;
+  opacity: 0;
+  margin: 0 0.1em;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.word-animate:hover {
+  color: #F5D061;
+  transform: translateY(-2px);
+}
+.grid-line {
+  stroke: rgba(212, 175, 55, 0.4);
+  stroke-width: 0.5;
+  opacity: 0;
+  stroke-dasharray: 5 5;
+  stroke-dashoffset: 1000;
+  animation: grid-draw 2s ease-out forwards;
+}
+.detail-dot {
+  fill: #D4AF37;
+  opacity: 0;
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+.corner-element-animate {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  opacity: 0;
+  animation: word-appear 1s ease-out forwards;
+}
+.text-decoration-animate {
+  position: relative;
+}
+.text-decoration-animate::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, #D4AF37, #FFFFFF, transparent);
+  animation: underline-grow 2s ease-out forwards;
+  animation-delay: 2s;
+}
+.floating-element-animate {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #D4AF37;
+  border-radius: 50%;
+  opacity: 0;
+  animation: float 4s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.ripple-effect {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: rgba(212, 175, 55, 0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: pulse-glow 1s ease-out forwards;
+  z-index: 9999;
+}
+#mouse-gradient-react {
+  position: fixed;
+  pointer-events: none;
+  border-radius: 9999px;
+  background-image: radial-gradient(circle, rgba(212, 175, 55, 0.12), rgba(212, 175, 55, 0.04), transparent 70%);
+  transform: translate(-50%, -50%);
+  will-change: left, top, opacity;
+  transition: left 70ms linear, top 70ms linear, opacity 300ms ease-out;
+  z-index: 40;
+}
+
+.hairline {
+  background-image: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.35), transparent);
+}
+.hairline-gold {
+  background-image: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.7), transparent);
+}
